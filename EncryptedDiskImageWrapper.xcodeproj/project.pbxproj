@@ -10,6 +10,25 @@
 		4CC590CB1493D3D9003E71E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC590CA1493D3D9003E71E6 /* Foundation.framework */; };
 		4CC590CE1493D3D9003E71E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590CD1493D3D9003E71E6 /* main.m */; };
 		4CC590D21493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */; };
+		4CC590E61493D3E9003E71E6 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590D91493D3E9003E71E6 /* NSData+Crypto.m */; };
+		4CC590E71493D3E9003E71E6 /* NSError+ConvenienceInitializers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DB1493D3E9003E71E6 /* NSError+ConvenienceInitializers.m */; };
+		4CC590E81493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DD1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m */; };
+		4CC590E91493D3E9003E71E6 /* NSString+Grouping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DF1493D3E9003E71E6 /* NSString+Grouping.m */; };
+		4CC590EA1493D3E9003E71E6 /* PGAppUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590E11493D3E9003E71E6 /* PGAppUtilities.m */; };
+		4CC590EB1493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590E31493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m */; };
+		4CC590EC1493D3E9003E71E6 /* PGErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590E51493D3E9003E71E6 /* PGErrors.m */; };
+		4CC591031493D4F2003E71E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CC591011493D4F2003E71E6 /* InfoPlist.strings */; };
+		4CC5910E1493D526003E71E6 /* PGEncryptedDiskImageWrapperTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC5910B1493D51A003E71E6 /* PGEncryptedDiskImageWrapperTestCase.m */; };
+		4CC5910F1493D53E003E71E6 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590D91493D3E9003E71E6 /* NSData+Crypto.m */; };
+		4CC591101493D53E003E71E6 /* NSError+ConvenienceInitializers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DB1493D3E9003E71E6 /* NSError+ConvenienceInitializers.m */; };
+		4CC591111493D53E003E71E6 /* NSFileManager+TemporaryFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DD1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m */; };
+		4CC591121493D53E003E71E6 /* NSString+Grouping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590DF1493D3E9003E71E6 /* NSString+Grouping.m */; };
+		4CC591131493D53E003E71E6 /* PGErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590E51493D3E9003E71E6 /* PGErrors.m */; };
+		4CC591141493D53E003E71E6 /* PGEncryptedDiskImageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590E31493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m */; };
+		4CC591191493D5B2003E71E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC591181493D5B2003E71E6 /* Security.framework */; };
+		4CC5911A1493D5B2003E71E6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC591181493D5B2003E71E6 /* Security.framework */; };
+		4CC5911D1493D5C0003E71E6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC5911B1493D5C0003E71E6 /* SenTestingKit.framework */; };
+		4CC5911E1493D5D9003E71E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC590CA1493D3D9003E71E6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +47,34 @@
 /* Begin PBXFileReference section */
 		4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EncryptedDiskImageWrapper; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC590CA1493D3D9003E71E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4CC590CD1493D3D9003E71E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4CC590D01493D3D9003E71E6 /* EncryptedDiskImageWrapper-Prefix.pch */ = {isa = PBXFileReference; path = "EncryptedDiskImageWrapper-Prefix.pch"; sourceTree = "<group>"; };
+		4CC590CD1493D3D9003E71E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4CC590D01493D3D9003E71E6 /* EncryptedDiskImageWrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EncryptedDiskImageWrapper-Prefix.pch"; sourceTree = "<group>"; };
 		4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EncryptedDiskImageWrapper.1; sourceTree = "<group>"; };
+		4CC590D81493D3E9003E71E6 /* NSData+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
+		4CC590D91493D3E9003E71E6 /* NSData+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
+		4CC590DA1493D3E9003E71E6 /* NSError+ConvenienceInitializers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+ConvenienceInitializers.h"; sourceTree = "<group>"; };
+		4CC590DB1493D3E9003E71E6 /* NSError+ConvenienceInitializers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+ConvenienceInitializers.m"; sourceTree = "<group>"; };
+		4CC590DC1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TemporaryFiles.h"; sourceTree = "<group>"; };
+		4CC590DD1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryFiles.m"; sourceTree = "<group>"; };
+		4CC590DE1493D3E9003E71E6 /* NSString+Grouping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Grouping.h"; sourceTree = "<group>"; };
+		4CC590DF1493D3E9003E71E6 /* NSString+Grouping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Grouping.m"; sourceTree = "<group>"; };
+		4CC590E01493D3E9003E71E6 /* PGAppUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAppUtilities.h; sourceTree = "<group>"; };
+		4CC590E11493D3E9003E71E6 /* PGAppUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGAppUtilities.m; sourceTree = "<group>"; };
+		4CC590E21493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEncryptedDiskImageWrapper.h; sourceTree = "<group>"; };
+		4CC590E31493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGEncryptedDiskImageWrapper.m; sourceTree = "<group>"; };
+		4CC590E41493D3E9003E71E6 /* PGErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGErrors.h; sourceTree = "<group>"; };
+		4CC590E51493D3E9003E71E6 /* PGErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGErrors.m; sourceTree = "<group>"; };
+		4CC590F51493D4F1003E71E6 /* EncryptedDiskImageWrapperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptedDiskImageWrapperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC590FB1493D4F1003E71E6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4CC590FC1493D4F1003E71E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4CC590FD1493D4F1003E71E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4CC591001493D4F1003E71E6 /* EncryptedDiskImageWrapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EncryptedDiskImageWrapperTests-Info.plist"; sourceTree = "<group>"; };
+		4CC591021493D4F2003E71E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4CC591071493D4F2003E71E6 /* EncryptedDiskImageWrapperTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EncryptedDiskImageWrapperTests-Prefix.pch"; sourceTree = "<group>"; };
+		4CC5910B1493D51A003E71E6 /* PGEncryptedDiskImageWrapperTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGEncryptedDiskImageWrapperTestCase.m; sourceTree = "<group>"; };
+		4CC5910C1493D51A003E71E6 /* PGEncryptedDiskImageWrapperTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEncryptedDiskImageWrapperTestCase.h; sourceTree = "<group>"; };
+		4CC591181493D5B2003E71E6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = ../../../../System/Library/Frameworks/Security.framework; sourceTree = "<group>"; };
+		4CC5911B1493D5C0003E71E6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +83,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC590CB1493D3D9003E71E6 /* Foundation.framework in Frameworks */,
+				4CC591191493D5B2003E71E6 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC590F11493D4F1003E71E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC5911A1493D5B2003E71E6 /* Security.framework in Frameworks */,
+				4CC5911D1493D5C0003E71E6 /* SenTestingKit.framework in Frameworks */,
+				4CC5911E1493D5D9003E71E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC590CC1493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+				4CC590FE1493D4F1003E71E6 /* EncryptedDiskImageWrapperTests */,
 				4CC590C91493D3D9003E71E6 /* Frameworks */,
 				4CC590C71493D3D9003E71E6 /* Products */,
 			);
@@ -58,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+				4CC590F51493D4F1003E71E6 /* EncryptedDiskImageWrapperTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,7 +122,10 @@
 		4CC590C91493D3D9003E71E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CC5911B1493D5C0003E71E6 /* SenTestingKit.framework */,
+				4CC591181493D5B2003E71E6 /* Security.framework */,
 				4CC590CA1493D3D9003E71E6 /* Foundation.framework */,
+				4CC590FA1493D4F1003E71E6 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -73,6 +133,9 @@
 		4CC590CC1493D3D9003E71E6 /* EncryptedDiskImageWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				4CC590ED1493D3EE003E71E6 /* Categories */,
+				4CC590EE1493D428003E71E6 /* Model */,
+				4CC590EF1493D468003E71E6 /* Controllers */,
 				4CC590CD1493D3D9003E71E6 /* main.m */,
 				4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */,
 				4CC590CF1493D3D9003E71E6 /* Supporting Files */,
@@ -84,6 +147,71 @@
 			isa = PBXGroup;
 			children = (
 				4CC590D01493D3D9003E71E6 /* EncryptedDiskImageWrapper-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CC590ED1493D3EE003E71E6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590D81493D3E9003E71E6 /* NSData+Crypto.h */,
+				4CC590D91493D3E9003E71E6 /* NSData+Crypto.m */,
+				4CC590DA1493D3E9003E71E6 /* NSError+ConvenienceInitializers.h */,
+				4CC590DB1493D3E9003E71E6 /* NSError+ConvenienceInitializers.m */,
+				4CC590DC1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.h */,
+				4CC590DD1493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m */,
+				4CC590DE1493D3E9003E71E6 /* NSString+Grouping.h */,
+				4CC590DF1493D3E9003E71E6 /* NSString+Grouping.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		4CC590EE1493D428003E71E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590E41493D3E9003E71E6 /* PGErrors.h */,
+				4CC590E51493D3E9003E71E6 /* PGErrors.m */,
+				4CC590E21493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.h */,
+				4CC590E31493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4CC590EF1493D468003E71E6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590E01493D3E9003E71E6 /* PGAppUtilities.h */,
+				4CC590E11493D3E9003E71E6 /* PGAppUtilities.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4CC590FA1493D4F1003E71E6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590FB1493D4F1003E71E6 /* AppKit.framework */,
+				4CC590FC1493D4F1003E71E6 /* CoreData.framework */,
+				4CC590FD1493D4F1003E71E6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4CC590FE1493D4F1003E71E6 /* EncryptedDiskImageWrapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CC5910C1493D51A003E71E6 /* PGEncryptedDiskImageWrapperTestCase.h */,
+				4CC5910B1493D51A003E71E6 /* PGEncryptedDiskImageWrapperTestCase.m */,
+				4CC590FF1493D4F1003E71E6 /* Supporting Files */,
+			);
+			path = EncryptedDiskImageWrapperTests;
+			sourceTree = "<group>";
+		};
+		4CC590FF1493D4F1003E71E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC591001493D4F1003E71E6 /* EncryptedDiskImageWrapperTests-Info.plist */,
+				4CC591011493D4F2003E71E6 /* InfoPlist.strings */,
+				4CC591071493D4F2003E71E6 /* EncryptedDiskImageWrapperTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -108,6 +236,24 @@
 			productReference = 4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */;
 			productType = "com.apple.product-type.tool";
 		};
+		4CC590F41493D4F1003E71E6 /* EncryptedDiskImageWrapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC591081493D4F2003E71E6 /* Build configuration list for PBXNativeTarget "EncryptedDiskImageWrapperTests" */;
+			buildPhases = (
+				4CC590F01493D4F1003E71E6 /* Sources */,
+				4CC590F11493D4F1003E71E6 /* Frameworks */,
+				4CC590F21493D4F1003E71E6 /* Resources */,
+				4CC590F31493D4F1003E71E6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncryptedDiskImageWrapperTests;
+			productName = EncryptedDiskImageWrapperTests;
+			productReference = 4CC590F51493D4F1003E71E6 /* EncryptedDiskImageWrapperTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -115,6 +261,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Prachi Gauriar";
 			};
 			buildConfigurationList = 4CC590C01493D3D9003E71E6 /* Build configuration list for PBXProject "EncryptedDiskImageWrapper" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -129,9 +276,37 @@
 			projectRoot = "";
 			targets = (
 				4CC590C51493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+				4CC590F41493D4F1003E71E6 /* EncryptedDiskImageWrapperTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CC590F21493D4F1003E71E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC591031493D4F2003E71E6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CC590F31493D4F1003E71E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CC590C21493D3D9003E71E6 /* Sources */ = {
@@ -139,10 +314,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC590CE1493D3D9003E71E6 /* main.m in Sources */,
+				4CC590E61493D3E9003E71E6 /* NSData+Crypto.m in Sources */,
+				4CC590E71493D3E9003E71E6 /* NSError+ConvenienceInitializers.m in Sources */,
+				4CC590E81493D3E9003E71E6 /* NSFileManager+TemporaryFiles.m in Sources */,
+				4CC590E91493D3E9003E71E6 /* NSString+Grouping.m in Sources */,
+				4CC590EA1493D3E9003E71E6 /* PGAppUtilities.m in Sources */,
+				4CC590EB1493D3E9003E71E6 /* PGEncryptedDiskImageWrapper.m in Sources */,
+				4CC590EC1493D3E9003E71E6 /* PGErrors.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC590F01493D4F1003E71E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC5910E1493D526003E71E6 /* PGEncryptedDiskImageWrapperTestCase.m in Sources */,
+				4CC5910F1493D53E003E71E6 /* NSData+Crypto.m in Sources */,
+				4CC591101493D53E003E71E6 /* NSError+ConvenienceInitializers.m in Sources */,
+				4CC591111493D53E003E71E6 /* NSFileManager+TemporaryFiles.m in Sources */,
+				4CC591121493D53E003E71E6 /* NSString+Grouping.m in Sources */,
+				4CC591131493D53E003E71E6 /* PGErrors.m in Sources */,
+				4CC591141493D53E003E71E6 /* PGEncryptedDiskImageWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CC591011493D4F2003E71E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CC591021493D4F2003E71E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4CC590D31493D3D9003E71E6 /* Debug */ = {
@@ -195,6 +402,11 @@
 		4CC590D61493D3D9003E71E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapper/EncryptedDiskImageWrapper-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -204,9 +416,44 @@
 		4CC590D71493D3D9003E71E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapper/EncryptedDiskImageWrapper-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4CC591091493D4F2003E71E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapperTests/EncryptedDiskImageWrapperTests-Prefix.pch";
+				INFOPLIST_FILE = "EncryptedDiskImageWrapperTests/EncryptedDiskImageWrapperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4CC5910A1493D4F2003E71E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapperTests/EncryptedDiskImageWrapperTests-Prefix.pch";
+				INFOPLIST_FILE = "EncryptedDiskImageWrapperTests/EncryptedDiskImageWrapperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -227,6 +474,14 @@
 			buildConfigurations = (
 				4CC590D61493D3D9003E71E6 /* Debug */,
 				4CC590D71493D3D9003E71E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4CC591081493D4F2003E71E6 /* Build configuration list for PBXNativeTarget "EncryptedDiskImageWrapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC591091493D4F2003E71E6 /* Debug */,
+				4CC5910A1493D4F2003E71E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
