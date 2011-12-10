@@ -1,0 +1,236 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CC590CB1493D3D9003E71E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC590CA1493D3D9003E71E6 /* Foundation.framework */; };
+		4CC590CE1493D3D9003E71E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC590CD1493D3D9003E71E6 /* main.m */; };
+		4CC590D21493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CC590C41493D3D9003E71E6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4CC590D21493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EncryptedDiskImageWrapper; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC590CA1493D3D9003E71E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4CC590CD1493D3D9003E71E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CC590D01493D3D9003E71E6 /* EncryptedDiskImageWrapper-Prefix.pch */ = {isa = PBXFileReference; path = "EncryptedDiskImageWrapper-Prefix.pch"; sourceTree = "<group>"; };
+		4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = EncryptedDiskImageWrapper.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CC590C31493D3D9003E71E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC590CB1493D3D9003E71E6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CC590BB1493D3D9003E71E6 = {
+			isa = PBXGroup;
+			children = (
+				4CC590CC1493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+				4CC590C91493D3D9003E71E6 /* Frameworks */,
+				4CC590C71493D3D9003E71E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CC590C71493D3D9003E71E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CC590C91493D3D9003E71E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590CA1493D3D9003E71E6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CC590CC1493D3D9003E71E6 /* EncryptedDiskImageWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590CD1493D3D9003E71E6 /* main.m */,
+				4CC590D11493D3D9003E71E6 /* EncryptedDiskImageWrapper.1 */,
+				4CC590CF1493D3D9003E71E6 /* Supporting Files */,
+			);
+			path = EncryptedDiskImageWrapper;
+			sourceTree = "<group>";
+		};
+		4CC590CF1493D3D9003E71E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC590D01493D3D9003E71E6 /* EncryptedDiskImageWrapper-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CC590C51493D3D9003E71E6 /* EncryptedDiskImageWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC590D51493D3D9003E71E6 /* Build configuration list for PBXNativeTarget "EncryptedDiskImageWrapper" */;
+			buildPhases = (
+				4CC590C21493D3D9003E71E6 /* Sources */,
+				4CC590C31493D3D9003E71E6 /* Frameworks */,
+				4CC590C41493D3D9003E71E6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncryptedDiskImageWrapper;
+			productName = EncryptedDiskImageWrapper;
+			productReference = 4CC590C61493D3D9003E71E6 /* EncryptedDiskImageWrapper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CC590BD1493D3D9003E71E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 4CC590C01493D3D9003E71E6 /* Build configuration list for PBXProject "EncryptedDiskImageWrapper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4CC590BB1493D3D9003E71E6;
+			productRefGroup = 4CC590C71493D3D9003E71E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CC590C51493D3D9003E71E6 /* EncryptedDiskImageWrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CC590C21493D3D9003E71E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC590CE1493D3D9003E71E6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4CC590D31493D3D9003E71E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4CC590D41493D3D9003E71E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4CC590D61493D3D9003E71E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapper/EncryptedDiskImageWrapper-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4CC590D71493D3D9003E71E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncryptedDiskImageWrapper/EncryptedDiskImageWrapper-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CC590C01493D3D9003E71E6 /* Build configuration list for PBXProject "EncryptedDiskImageWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC590D31493D3D9003E71E6 /* Debug */,
+				4CC590D41493D3D9003E71E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC590D51493D3D9003E71E6 /* Build configuration list for PBXNativeTarget "EncryptedDiskImageWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC590D61493D3D9003E71E6 /* Debug */,
+				4CC590D71493D3D9003E71E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CC590BD1493D3D9003E71E6 /* Project object */;
+}
