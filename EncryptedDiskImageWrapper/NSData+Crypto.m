@@ -20,7 +20,6 @@ NSString *const PGCommonCryptoErrorDomain = @"com.quantumlenscap.PGCommonCryptoE
 
 /*!
  @abstract Computes and returns the digest of the specified data buffer.
- 
  @discussion digest must be pre-allocated and have enough space to store the digest. Specifically, the size should be one of the
      digest length constants, whose names take the form CC_<ALGORITHM>_DIGEST_LENGTH, which are defined in CommonCrypto/CommonDigest.h.
 
