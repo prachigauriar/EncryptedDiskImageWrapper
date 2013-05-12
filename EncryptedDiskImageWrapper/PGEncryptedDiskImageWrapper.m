@@ -3,7 +3,25 @@
 //  EncryptedDiskImageWrapper
 //
 //  Created by Prachi Gauriar on 10/25/2011.
-//  Copyright (c) 2011 Prachi Gauriar. All rights reserved.
+//  Copyright (c) 2011 Prachi Gauriar.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 #import "PGEncryptedDiskImageWrapper.h"
@@ -22,22 +40,17 @@
  @abstract Constants for indicating what verb hdiutil should perfom. 
  @discussion These constants are only used with the +executeHDIUtilTaskWithVerb:arguments:password:result:error: method.
  */
-typedef enum {
-    /*! 
-     @abstract The create verb, which instructs hdiutil to creates a disk image. 
-     */
+typedef NS_ENUM(NSUInteger, PGHDIUtilVerb) {
+    /*! @abstract The create verb, which instructs hdiutil to creates a disk image. */
     PGHDIUtilCreateVerb = 1,
     
-    /*! 
-     @abstract The attach verb, which instructs hdiutil to attach a disk image and mount its volumes. 
-     */
+    /*! @abstract The attach verb, which instructs hdiutil to attach a disk image and mount its volumes. */
     PGHDIUtilAttachVerb,
     
-    /*!
-     @abstract The detach verb, which instructs hdiutil to unmount a disk image's volumes and detach it.
-     */
+    /*! @abstract The detach verb, which instructs hdiutil to unmount a disk image's volumes and detach it. */
     PGHDIUtilDetachVerb
-} PGHDIUtilVerb;
+};
+
 
 NSString *const PGEncryptionTypeVolumeOption = @"EncryptionType";
 NSString *const PGGIDVolumeOption = @"GID";
@@ -46,45 +59,29 @@ NSString *const PGUIDVolumeOption = @"UID";
 NSString *const PGNameVolumeOption = @"VolumeName";
 NSString *const PGSizeVolumeOption = @"VolumeSize";
 
-
-/*!
- @abstract The user table entry key whose value corresponds to the entry's user.
- */
+/*! @abstract The user table entry key whose value corresponds to the entry's user. */
 static NSString *const PGUserUserTableEntryKey = @"User";
 
-/*!
- @abstract The user table entry key whose value corresponds to the entry's salt.
- */
+/*! @abstract The user table entry key whose value corresponds to the entry's salt. */
 static NSString *const PGSaltUserTableEntryKey = @"Salt";
 
-/*!
- @abstract The user table entry key whose value corresponds to the entry's rounds value.
- */
+/*! @abstract The user table entry key whose value corresponds to the entry's rounds value. */
 static NSString *const PGRoundsUserTableEntryKey = @"Rounds";
 
-/*!
- @abstract The user table entry key whose value corresponds to the entry's initialization vector.
- */
+/*! @abstract The user table entry key whose value corresponds to the entry's initialization vector. */
 static NSString *const PGInitializationVectorUserTableEntryKey = @"IV";
 
-/*!
- @abstract The user table entry key whose value corresponds to the entry's secret.
- */
+/*! @abstract The user table entry key whose value corresponds to the entry's secret. */
 static NSString *const PGSecretUserTableEntryKey = @"Secret";
 
-/*!
- @abstract The name of the encrypted disk image file inside the encrypted disk image wrapper's bundle.
- */
+/*! @abstract The name of the encrypted disk image file inside the encrypted disk image wrapper's bundle. */
 static NSString *const PGEncryptedDiskImageFilename = @"EncryptedDiskImage.sparsebundle";
 
-/*!
- @abstract The name of the user table file inside the encrypted disk image wrapper's bundle.
- */
+/*! @abstract The name of the user table file inside the encrypted disk image wrapper's bundle. */
 static NSString *const PGUserTableFilename = @"UserTable.plist";
 
 
-#pragma mark 
-#pragma mark Private Methods Interface 
+#pragma mark - Private Methods Interface 
 
 @interface PGEncryptedDiskImageWrapper ()
 
@@ -134,24 +131,29 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
  */
 + (NSDictionary *)userTableEntryForMasterPassword:(NSString *)masterPassword user:(NSString *)user password:(NSString *)password;
 
-@property(copy) NSString *masterPassword;
-@property(retain, readwrite) NSString *mountPoint;
-@property(retain, readwrite) NSMutableDictionary *userTable;
-@property(retain, readwrite) NSString *wrapperPath;
+@property(readwrite, copy) NSString *masterPassword;
+@property(readwrite, strong) NSString *mountPoint;
+@property(readwrite, strong) NSMutableDictionary *userTable;
+@property(readwrite, strong) NSString *wrapperPath;
 
 @end
 
 
-#pragma mark
-#pragma mark Implementation
+#pragma mark - Implementation
 
-@implementation PGEncryptedDiskImageWrapper
+@implementation PGEncryptedDiskImageWrapper {
+    NSString *_wrapperPath;
+    NSString *_diskImagePath;
+    NSString *_userTablePath;
+}
 
-@synthesize masterPassword, mountPoint, userTable, wrapperPath;
 
-+ (PGEncryptedDiskImageWrapper *)createEncryptedDiskImageWrapperAtPath:(NSString *)path masterPassword:(NSString *)masterPassword 
-                                                                  user:(NSString *)user password:(NSString *)password 
-                                                         volumeOptions:(NSDictionary *)volumeOptions error:(NSError **)errorOut
++ (PGEncryptedDiskImageWrapper *)createEncryptedDiskImageWrapperAtPath:(NSString *)path
+                                                        masterPassword:(NSString *)masterPassword
+                                                                  user:(NSString *)user
+                                                              password:(NSString *)password
+                                                         volumeOptions:(NSDictionary *)volumeOptions
+                                                                 error:(NSError **)errorOut
 {
     NSError *error = nil;
     
@@ -159,8 +161,9 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     NSString *tempWrapperPath = [[NSFileManager defaultManager] createTemporaryDirectoryWithTemplate:@"PGEncryptedDiskImageWrapper.XXXXXX" error:&error];
     if (!tempWrapperPath) {
         if (errorOut) {
-            *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperCreationError userInfoObjectsAndKeys:error, NSUnderlyingErrorKey,
-                         NSLocalizedString(@"Failed to create the encrypted disk image wrapper directory.", nil), NSLocalizedDescriptionKey, nil];
+            *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperCreationError userInfoObjectsAndKeys:error,
+                         NSUnderlyingErrorKey, NSLocalizedString(@"Failed to create the encrypted disk image wrapper directory.", nil),
+                         NSLocalizedDescriptionKey, nil];
         }
         return nil;
     }
@@ -178,16 +181,17 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     NSMutableArray *args = [self hdiutilTaskArgumentsForVolumeOptions:volumeOptions];
     [args insertObject:[tempWrapperPath stringByAppendingPathComponent:PGEncryptedDiskImageFilename] atIndex:0];
     if (![self executeHDIUtilTaskWithVerb:PGHDIUtilCreateVerb arguments:args password:masterPassword result:NULL error:&error]) {
-        if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperCreationError userInfoObjectsAndKeys:error, 
-                                   NSUnderlyingErrorKey, NSLocalizedString(@"Failed to create the encrypted disk image.", nil), NSLocalizedDescriptionKey, nil];
+        if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperCreationError userInfoObjectsAndKeys:error,
+                                   NSUnderlyingErrorKey, NSLocalizedString(@"Failed to create the encrypted disk image.", nil), NSLocalizedDescriptionKey, 
+                                   nil];
         return nil;
     }
     
     // Move the disk image wrapper to URL
     if (![[NSFileManager defaultManager] moveItemAtPath:tempWrapperPath toPath:path error:&error]) {
         if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperCreationError userInfoObjectsAndKeys: error, 
-                                   NSUnderlyingErrorKey, NSLocalizedString(@"Failed to save the encrypted disk image wrapper.", nil), NSLocalizedDescriptionKey, 
-                                   nil];
+                                   NSUnderlyingErrorKey, NSLocalizedString(@"Failed to save the encrypted disk image wrapper.", nil), 
+                                   NSLocalizedDescriptionKey, nil];
         return nil;
     }
 
@@ -208,18 +212,18 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     if (!(self = [super init])) return nil;
 
     [self setWrapperPath:path];    
-    userTablePath = [wrapperPath stringByAppendingPathComponent:PGUserTableFilename];
-    diskImagePath = [wrapperPath stringByAppendingPathComponent:PGEncryptedDiskImageFilename];
+    _userTablePath = [_wrapperPath stringByAppendingPathComponent:PGUserTableFilename];
+    _diskImagePath = [_wrapperPath stringByAppendingPathComponent:PGEncryptedDiskImageFilename];
 
     // If the user table or disk image is missing, return an error
-    if (![[NSFileManager defaultManager] fileExistsAtPath:userTablePath] || ![[NSFileManager defaultManager] fileExistsAtPath:diskImagePath]) {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_userTablePath] || ![[NSFileManager defaultManager] fileExistsAtPath:_diskImagePath]) {
         if (errorOut) *errorOut = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileNoSuchFileError userInfo:nil];
         return nil;
     }
     
     // Get the user table
-    [self setUserTable:[[NSMutableDictionary alloc] initWithContentsOfFile:userTablePath]];
-    NSDictionary *userEntry = [userTable objectForKey:user];
+    [self setUserTable:[[NSMutableDictionary alloc] initWithContentsOfFile:_userTablePath]];
+    NSDictionary *userEntry = [_userTable objectForKey:user];
     if (!userEntry) {
         if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperAuthenticationError userInfoObjectsAndKeys:
                                    NSLocalizedString(@"Bad user name or password.", nil), NSLocalizedDescriptionKey, nil];
@@ -247,7 +251,7 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     
     // If we were unable to determine the master password, something went wrong, so return nil
     [self setMasterPassword:[[NSString alloc] initWithData:masterPasswordData encoding:NSUTF8StringEncoding]];
-    return masterPassword ? self : nil;
+    return _masterPassword ? self : nil;
 }
 
 
@@ -261,8 +265,8 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     NSError *error = nil;
     
     NSDictionary *result = nil; 
-    NSArray *args = [NSArray arrayWithObjects:diskImagePath, @"-nobrowse", @"-mountpoint", mountPath, nil];
-    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilAttachVerb arguments:args password:masterPassword result:&result error:&error]) {
+    NSArray *args = [NSArray arrayWithObjects:_diskImagePath, @"-nobrowse", @"-mountpoint", mountPath, nil];
+    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilAttachVerb arguments:args password:_masterPassword result:&result error:&error]) {
         if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperAttachmentError userInfoObjectsAndKeys:error, 
                                    NSUnderlyingErrorKey, NSLocalizedString(@"Failed to attach disk image.", nil), NSLocalizedDescriptionKey, nil];
         return NO;
@@ -286,10 +290,10 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
 
     NSError *error = nil;
     
-    NSArray *args = [NSArray arrayWithObjects:diskImagePath, @"-nobrowse", @"-mountrandom", mountRoot, nil];
+    NSArray *args = [NSArray arrayWithObjects:_diskImagePath, @"-nobrowse", @"-mountrandom", mountRoot, nil];
     
     NSDictionary *result = nil; 
-    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilAttachVerb arguments:args password:masterPassword result:&result error:&error]) {
+    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilAttachVerb arguments:args password:_masterPassword result:&result error:&error]) {
         if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperAttachmentError userInfoObjectsAndKeys:error, 
                                    NSUnderlyingErrorKey, NSLocalizedString(@"Failed to attach disk image.", nil), NSLocalizedDescriptionKey, nil];
         return nil;
@@ -303,7 +307,7 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
         }
     }
     
-    return mountPoint;
+    return _mountPoint;
 }
 
 
@@ -312,7 +316,7 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     if (![self isAttached]) return NO;
     
     NSError *error = nil;
-    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilDetachVerb arguments:[NSArray arrayWithObject:mountPoint] password:nil result:NULL error:&error]) {
+    if (![[self class] executeHDIUtilTaskWithVerb:PGHDIUtilDetachVerb arguments:[NSArray arrayWithObject:_mountPoint] password:nil result:NULL error:&error]) {
         if (errorOut) *errorOut = [NSError errorWithDomain:PGErrorDomain code:PGEncryptedDiskImageWrapperAttachmentError userInfoObjectsAndKeys:error, 
                                    NSUnderlyingErrorKey, NSLocalizedString(@"Failed to detach disk image.", nil), NSLocalizedDescriptionKey, nil];
         return NO;
@@ -326,7 +330,7 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
 
 - (BOOL)isAttached
 {
-    return mountPoint != nil;
+    return _mountPoint != nil;
 }
 
 
@@ -334,19 +338,19 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
 
 - (void)setPassword:(NSString *)password forUser:(NSString *)user
 {
-    [userTable setObject:[[self class] userTableEntryForMasterPassword:masterPassword user:user password:password] forKey:user];
+    [_userTable setObject:[[self class] userTableEntryForMasterPassword:_masterPassword user:user password:password] forKey:user];
 }
 
 
 - (void)removeUser:(NSString *)user
 {
-    [userTable removeObjectForKey:user];
+    [_userTable removeObjectForKey:user];
 }
 
 
 - (BOOL)saveUserTable
 {
-    return [userTable writeToFile:userTablePath atomically:YES];
+    return [_userTable writeToFile:_userTablePath atomically:YES];
 }
 
 
@@ -414,15 +418,15 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
     // Default arguments
     NSMutableArray *arguments = [[NSMutableArray alloc] init];
     [arguments addObject:@"-megabytes"];
-    [arguments addObject:[NSString stringWithFormat:@"%ul", [volumeSize unsignedIntegerValue]]];
+    [arguments addObject:[NSString stringWithFormat:@"%lu", [volumeSize unsignedIntegerValue]]];
     [arguments addObject:@"-type"];
     [arguments addObject:@"SPARSEBUNDLE"];
     [arguments addObject:@"-fs"];
     [arguments addObject:@"HFS+J"];
         
     NSString *encryptionType = [volumeOptions objectForKey:PGEncryptionTypeVolumeOption];
-    [arguments addObject:@"-encryption"];
     if (encryptionType) {
+        [arguments addObject:@"-encryption"];
         [arguments addObject:encryptionType];
     }
     
@@ -470,8 +474,5 @@ static NSString *const PGUserTableFilename = @"UserTable.plist";
             rounds, PGRoundsUserTableEntryKey, iv, PGInitializationVectorUserTableEntryKey,
             secret, PGSecretUserTableEntryKey, nil];
 }
-
-
-
 
 @end
