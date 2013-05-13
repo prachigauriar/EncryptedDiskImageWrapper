@@ -227,6 +227,7 @@ static NSData *PGDataCryptoSymmetricKeyForPassword(NSString *password, NSData *s
     }
     
     if (result != kCCSuccess) {
+        free(encryptedDataBuffer);
         if (errorOut) *errorOut = [NSError errorWithDomain:PGCommonCryptoErrorDomain code:result userInfo:nil];
         return nil;
     }
@@ -270,6 +271,7 @@ static NSData *PGDataCryptoSymmetricKeyForPassword(NSString *password, NSData *s
     }
     
     if (result != kCCSuccess) {
+        free(decryptedDataBuffer);
         if (errorOut) *errorOut = [NSError errorWithDomain:PGCommonCryptoErrorDomain code:result userInfo:nil];
         return nil;
     }

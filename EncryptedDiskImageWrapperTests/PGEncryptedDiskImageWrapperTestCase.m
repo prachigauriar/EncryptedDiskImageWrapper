@@ -61,7 +61,7 @@
 
 - (void)tearDown
 {
-    //[[NSFileManager defaultManager] removeItemAtPath:wrapperPath error:NULL];
+    [[NSFileManager defaultManager] removeItemAtPath:wrapperPath error:NULL];
     [[NSFileManager defaultManager] removeItemAtPath:randomMountRoot error:NULL];
     [[NSFileManager defaultManager] removeItemAtPath:mountPoint error:NULL];
     [super tearDown];
